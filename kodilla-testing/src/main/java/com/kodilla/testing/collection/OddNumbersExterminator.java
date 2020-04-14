@@ -16,13 +16,15 @@ public class OddNumbersExterminator {
                     oddNumbers.add(numbers.get(i));
                 }
             }
+            return oddNumbers;
         }
             else {
-                for (int k = 0; k< numbers.size(); k++) {
-                    oddNumbers.add(null);
-                }
-            ;}
+            ArrayList<Integer> zeroNumbersArray = new ArrayList<>();
+            oddNumbers = zeroNumbersArray;
+            return oddNumbers;
 
-        return oddNumbers;
+
+
+        }
     }
 }

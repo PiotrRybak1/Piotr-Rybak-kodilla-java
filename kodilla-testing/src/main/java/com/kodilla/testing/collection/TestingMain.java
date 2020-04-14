@@ -8,14 +8,14 @@ public class TestingMain<addScore> {
              testNumber = new ArrayList<Integer>();
              for(int k = 0; k < 100; k++){
              testNumber.add(theGenerator.nextInt(200));
-        }
+       }
         OddNumbersExterminator examinator = new OddNumbersExterminator();
           ArrayList<Integer>  oddScore;
 
     {
-        oddScore = examinator.exterminate(testNumber);
+       oddScore = examinator.exterminate(testNumber);
     }
-          System.out.println(oddScore);
+         System.out.println(oddScore);
 
     }
 }
