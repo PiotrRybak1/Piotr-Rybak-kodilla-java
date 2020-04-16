@@ -1,6 +1,7 @@
 package com.kodilla.testing.collection;
 
 import org.junit.*;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -13,12 +14,14 @@ public class CollectionTestSuite {
             testNumber.add(theGenerator.nextInt(200));
         }
 
-                return testNumber;
+        return testNumber;
     }
+
     @Before
-    public void before(){
+    public void before() {
         System.out.println("Test collection: begin");
     }
+
     @After
     public void after() {
         System.out.println("Test collection: end");
@@ -40,8 +43,7 @@ public class CollectionTestSuite {
         ArrayList<Integer> dataTest = testData.prepareData();
         OddNumbersExterminator examinator = new OddNumbersExterminator();
         ArrayList<Integer> oddScore = examinator.exterminate(dataTest);
-        for (int j = 0; j< oddScore.size(); j++)
-        {
+        for (int j = 0; j < oddScore.size(); j++) {
             Assert.assertTrue(oddScore.get(j) % 2 == 0);
         }
 
