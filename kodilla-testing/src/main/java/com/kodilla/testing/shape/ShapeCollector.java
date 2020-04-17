@@ -19,7 +19,7 @@ public class ShapeCollector {
     }
 
     public Shape getFigure(int n) {
-        return null;
+        return figureCollection.get(n);
     }
 
     public void showFigures() {
