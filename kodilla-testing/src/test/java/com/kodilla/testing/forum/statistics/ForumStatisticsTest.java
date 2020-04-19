@@ -11,7 +11,8 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class ForumStatisticsTest {private static int testCounter = 0;
+public class ForumStatisticsTest {
+    private static int testCounter = 0;
 
     @BeforeClass
     public static void beforeAllTests() {
@@ -36,10 +37,10 @@ public class ForumStatisticsTest {private static int testCounter = 0;
         ForumStatistics forumStatistics = new ForumStatistics();
 
         Statistics statistics = mock(Statistics.class);
-        forumStatistics.calculateAdvStatistics( statistics);
+        forumStatistics.calculateAdvStatistics(statistics);
         Random theGenerator = new Random();
         List<String> result = new ArrayList<>();
-        for (int n=0; n<100; n++){
+        for (int n = 0; n < 100; n++) {
 
             result.add(String.join("", Collections.nCopies(theGenerator.nextInt(50) + 1, "a")));
         }
@@ -57,23 +58,40 @@ public class ForumStatisticsTest {private static int testCounter = 0;
         int commentsStat = comments;
         //Then
         assertEquals(100, quantityOfUsers);
-        assertEquals(1000,postsStat);
-        assertEquals(10000,commentsStat);
+        assertEquals(1000, postsStat);
+        assertEquals(10000, commentsStat);
+
 
     }
 
     @Test
-    public void testshowStatistics(){
+    public void testshowStatistics() {
 
         ForumStatistics forumStatistics = new ForumStatistics();
-        Integer userNumber = 100;
-        Double postsNumber = 1000.00;
-        Double commentsNumber= 10000.00;
-        Double averagePosts = 10.00;
-        Double averageComments= 10.00;
-        Double averageCommentsPosts = 10.00;
+        Statistics statistics = mock(Statistics.class);
+        forumStatistics.showStatistics(statistics);
+        Random theGenerator = new Random();
+        List<String> result = new ArrayList<>();
+        for (int n = 0; n < 100; n++) {
 
-         forumStatistics.showStatistics();
+            result.add(String.join("", Collections.nCopies(theGenerator.nextInt(50) + 1, "a")));
+        }
+
+        when(statistics.usersNames()).thenReturn((ArrayList) result);
+        Integer posts = 1000;
+        when(statistics.postsCount()).thenReturn((Integer) posts);
+        Integer comments = 10000;
+        when(statistics.commentsCount()).thenReturn((Integer) comments);
+
+
+        //When
+        int quantityOfUsers = result.size();
+        int postsStat = posts;
+        int commentsStat = comments;
+        //Then
+        assertEquals(100, quantityOfUsers);
+        assertEquals(1000, postsStat);
+        assertEquals(10000, commentsStat);
 
 
     }

@@ -20,14 +20,15 @@ public class ForumStatistics {
         userNumber = userList.size();
         postsNumber = (double) statistics.postsCount();
         commentsNumber = (double) statistics.commentsCount();
-        averagePosts = (postsNumber/userNumber);
-        averageComments = (commentsNumber /userNumber);
+        averagePosts = (postsNumber / userNumber);
+        averageComments = (commentsNumber / userNumber);
         averageCommentsPosts = (commentsNumber / postsNumber);
+        System.out.println(" Numbers of users = " + userNumber + " Numbers of posts = " + postsNumber + " Numbers of comments = " + commentsNumber + " Average of posts = " + averagePosts + " Average of comments = " + averageComments + " Average comments/posts = " + averageCommentsPosts);
 
     }
 
-    public void showStatistics() {
-       System.out.println( " Numbers of users = " +userNumber +" Numbers of posts = "+  postsNumber + " Numbers of comments = "+  commentsNumber +" Average of posts = " + averagePosts +" Average of comments = " +  averageComments + " Average comments/posts = "+ averageCommentsPosts);
+    public void showStatistics(Statistics statistics) {
+        System.out.println(" Numbers of users = " + userNumber + " Numbers of posts = " + postsNumber + " Numbers of comments = " + commentsNumber + " Average of posts = " + averagePosts + " Average of comments = " + averageComments + " Average comments/posts = " + averageCommentsPosts);
     }
 
 }
