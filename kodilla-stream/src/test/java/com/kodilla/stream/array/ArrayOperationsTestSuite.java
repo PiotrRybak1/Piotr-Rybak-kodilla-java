@@ -9,13 +9,15 @@ public class ArrayOperationsTestSuite {
     public void testGetAverage() {
 
         //Given
+        int n = 0;
         int[] numbers = new int[20];
-        for (int i = 0; i < 20; i++) {
-            numbers[i] = i;
+        for (int i = 35; i < 55; i++) {
+            numbers[n] = i;
+            n++;
         }
         //When
         double sample = ArrayOperations.getAverage(numbers);
         //Then
-        Assert.assertEquals(9.5, sample, 0.5);
+        Assert.assertEquals(44.5, sample, 0.5);
     }
 }
