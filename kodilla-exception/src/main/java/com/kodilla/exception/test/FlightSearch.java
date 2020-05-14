@@ -1,12 +1,23 @@
 package com.kodilla.exception.test;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class FlightSearch {
 
     @Override
     public String toString() {
         return "FlightSearch{}";
+    }
+
+    public Boolean checkIfTheFlightIsAvailable(Map <String,Boolean>flights,Flight flight){
+       Boolean available = flights.containsKey(flight.getDepartureAirport())
+                && flights.get(flight.getDepartureAirport())
+                && flights.containsKey(flight.getArrivalAirport())
+                && flights.get(flight.getArrivalAirport());
+        return available;
+
+
     }
 
     public void findFlight(Flight flight) throws RouteNotFoundException {
@@ -33,11 +44,13 @@ public class FlightSearch {
         flights.put("Geneva", true);
 
 
-        if (flights.containsKey(flight.getDepartureAirport()) && flights.get(flight.getDepartureAirport()) && flights.containsKey(flight.getArrivalAirport()) && flights.get(flight.getArrivalAirport())) {
-            System.out.println("Found a flight from " + flight.getDepartureAirport() + " to " + flight.getArrivalAirport() +"." + " Clic the link to go to the booking page. ");
-        } else if (flights.containsKey(flight.getDepartureAirport()) && flights.containsKey(flight.getArrivalAirport())) {
 
-            System.out.println("Flight from "  + flight.getDepartureAirport() + " to " + flight.getArrivalAirport() +" not found. Clic the link to move back to the search engine.");
+        if (checkIfTheFlightIsAvailable(flights,flight)){
+            System.out.println("Found a flight from " + flight.getDepartureAirport() + " to " + flight.getArrivalAirport() + "." + " Clic the link to go to the booking page. ");
+        }
+        else if (flights.containsKey(flight.getDepartureAirport()) && flights.containsKey(flight.getArrivalAirport())) {
+
+            System.out.println("Flight from " + flight.getDepartureAirport() + " to " + flight.getArrivalAirport() + " not found. Clic the link to move back to the search engine.");
         } else {
             throw new RouteNotFoundException("The searched set does not have such a city");
         }
