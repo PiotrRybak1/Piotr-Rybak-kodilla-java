@@ -1,12 +1,14 @@
 package com.kodilla.patterns.factory.tasks;
 
 public final class TaskFactory {
-    public static final String SHOPPING = "SHOPPING";
-    public static final String PAINTING = "PAINTING";
-    public static final String DRIVING = "DRIVING";
+    public enum TaskTypes {
+        SHOPPING,
+        PAINTING,
+        DRIVING
+    }
 
-    public final Task makeTask(final String taskClass) {
-        switch (taskClass) {
+    public final Task makeTask(final TaskTypes taskEnum) {
+        switch (taskEnum) {
             case SHOPPING:
                 return new ShoppingTask("buying a new device", "iPad", 1.0);
             case PAINTING:

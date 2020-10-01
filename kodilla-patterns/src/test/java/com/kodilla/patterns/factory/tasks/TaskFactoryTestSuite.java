@@ -10,7 +10,7 @@ public class TaskFactoryTestSuite {
         TaskFactory taskFactory = new TaskFactory();
 
         //When
-        Task shopping = taskFactory.makeTask(taskFactory.SHOPPING);
+        Task shopping = taskFactory.makeTask(TaskFactory.TaskTypes.SHOPPING);
 
         //Then
         Assert.assertEquals("Task name - buying a new device - consisting in buying iPad in an amount " + 1.0 + " has been initiated", shopping.executeTask());
@@ -24,7 +24,7 @@ public class TaskFactoryTestSuite {
         TaskFactory taskFactory = new TaskFactory();
 
         //When
-        Task painting = taskFactory.makeTask(taskFactory.PAINTING);
+        Task painting = taskFactory.makeTask(TaskFactory.TaskTypes.PAINTING);
 
         //Then
         Assert.assertEquals("Task name - paint the living room - based on painting living room on color gray has been initiated", painting.executeTask());
@@ -38,7 +38,7 @@ public class TaskFactoryTestSuite {
         TaskFactory taskFactory = new TaskFactory();
 
         //When
-        Task driving = taskFactory.makeTask(taskFactory.DRIVING);
+        Task driving = taskFactory.makeTask(TaskFactory.TaskTypes.DRIVING);
 
         //Then
         Assert.assertEquals("Task name - go on vacation - consisting of reaching on Masurian lakes by means of transport own car has been initiated", driving.executeTask());
