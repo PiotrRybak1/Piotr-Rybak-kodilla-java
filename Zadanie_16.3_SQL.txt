@@ -1,0 +1,92 @@
+CREATE  TABLE ISSUELISTS
+( 
+	ID 			SERIAL PRIMARY KEY,
+	NAME VARCHAR(200) NOT NULL 
+);
+
+
+CREATE TABLE ISSUES
+(
+	ID			SERIAL PRIMARY KEY,
+    	ISSUELISTS_ID BIGINT UNSIGNED NOT NULL,
+    	USER_ID_ASSIGNEDTO BIGINT UNSIGNED NOT NULL,
+    	SUMMARY VARCHAR(1024) NOT NULL,
+    	DESCRIPTION VARCHAR (1024) NOT NULL,
+	FOREIGN KEY (ISSUELISTS_ID) REFERENCES ISSUELISTS(ID),
+    	FOREIGN KEY (USER_ID_ASSIGNEDTO) REFERENCES USERS(ID);
+
+CREATE TABLE USERS
+(
+              ID                     SERIAL PRIMARY KEY,
+    	FIRSTNAME   VARCHAR(100),
+    	LASTNAME    VARCHAR(100)
+);
+INSERT INTO ISSUELISTS (NAME)
+VALUES ("ToDo");
+INSERT INTO ISSUELISTS (NAME)
+VALUES ("InProgress");
+INSERT INTO ISSUELISTS (NAME)
+VALUES ("Done");
+
+INSERT INTO USERS (FIRSTNAME, LASTNAME)
+VALUES ("John", "Smith");
+
+INSERT INTO USERS (FIRSTNAME, LASTNAME)
+VALUES ("Zachary", "Lee");
+
+INSERT INTO USERS (FIRSTNAME, LASTNAME)
+VALUES ("Stephanie", "Kovalsky");
+
+INSERT INTO USERS (FIRSTNAME, LASTNAME)
+VALUES ("Thomas", "Landgren");
+
+INSERT INTO USERS (FIRSTNAME, LASTNAME)
+VALUES ("John", "Thomson");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (1,5,"New project","conversations with the client on a new project");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (1,4,"New project","conversations with the client on a new project");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (1,1,"Creating a database","creating a database for an existing project");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (1,2,"Creating a database","creating a database for an existing project");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (1,2,"Creating a UX/UI Design","creating a UX/UI Design for an existing project");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (2,3,"Data analysis","analysis of the obtained data for an existing project");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (2,1,"Data analysis","analysis of the obtained data for an existing project");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (2,3,"Use of conclusions","using conclusions from the data in an existing project");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (2,1,"Use of conclusions","using conclusions from the data in an existing project");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (2,2,"Use of conclusions","using conclusions from the data in an existing project");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (3,5,"Tests","tests of key functionalities for an existing project ");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (3,4,"Tests","tests of key functionalities for an existing project ");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (3,5,"unsatisfactory performance of the functionality","redirecting developer code for repair");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (3,5,"Implementation","implementation of the production version 1.0 at the customer");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,USER_ID_ASSIGNEDTO,SUMMARY,DESCRIPTION)
+VALUES (3,1,"Implementation","implementation of the production version 1.0 at the customer");
+
+commit;
+
